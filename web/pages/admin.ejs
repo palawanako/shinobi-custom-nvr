@@ -1,0 +1,585 @@
+<%
+    window.libURL = originalURL + global.s.checkCorrectPathEnding(config.webPaths.admin)
+%>
+<% include blocks/header %>
+<script>$user=<%-JSON.stringify($user)%></script>
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/custom_style.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/fonts.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/pnotify.custom.min.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/vbox.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/circles.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/admin-page.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/font-awesome.min.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/fullcalendar.min.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/bootstrap-table.min.css">
+<link rel="stylesheet" href="<%-window.libURL%>libs/css/main.dash2.css">
+<% customAutoLoad.adminLibsCss.forEach(function(lib){ %>
+    <link rel="stylesheet" href="<%-window.libURL%>libs/css/<%-lib%>">
+<% }) %>
+<style>
+body{
+direction:rtl !important;
+}
+</style>
+<body class="shinobi-bg aa">
+<div class="container-fluid">
+    <div class="container">
+<nav class="navbar navbar-default navbar-forestgreen">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">TAMEYE</a>
+    </div>
+
+      <ul class="nav navbar-nav navbar-right">
+<!--        <li><a href="#">Link</a></li>-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;<i class="fa fa-bars"></i>&nbsp;</a>
+          <ul class="dropdown-menu">
+<!--
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+-->
+            <li><a class="logout"><i class="fa fa-sign-out pull-right"></i> خروج</a></li>
+          </ul>
+        </li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="row">
+<small id="msg" class="pull-left" style="color: #d9534f;font-size: 16px;font-family: vazir;width: 100%;padding: 8px;border-radius: 10px;margin-bottom: 13px;"></small>
+		<div class="col-md-6">
+				<form id="add_new">
+				  <div class="form-group-group forestgreen">
+						<h4>افزودن کاربر</h4>
+						<div class="form-group">
+							<label><div><span>ایمیل</span></div>
+								<div><input class="form-control" type="email" name="mail"></div>
+							</label>
+						</div>
+						<div class="form-group">
+							<label><div><span>کلمه عبور</span></div>
+								<div><input class="form-control" type="password" name="pass" ></div>
+							</label>
+						</div>
+						<div class="form-group">
+							<label><div><span>تکرار کلمه عبور</span></div>
+								<div><input class="form-control" type="password" name="password_again" ></div>
+							</label>
+					  </div>
+					  <div class="form-group">
+					  <label><div><span>گروه های کاربری</span></div>
+						  <div>
+						  <select class="form-control" id="grpUser" name="grpSetting">
+
+							</select>
+						  </div>
+					  </label>
+						</div>
+					  <div class="pull-left">
+                          <button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i> جدید</button>
+                          <div class="pull-left">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> ثبت</button>
+                          </div>
+                      </div>
+				  </div>
+				</form>
+			</div>
+			<div class="col-md-6">
+			  <div class="form-group-group forestgreen">
+			  <form id="add_new_grp">
+					<h4>افزودن گروه کاربری<small id="msg" class="pull-right" style="color:#fff"></small></h4>
+					<div class="form-group">
+						<label><div><span>نام گروه</span></div>
+							<div><input class="form-control" type="text" name="grpName"></div>
+						</label>
+
+				  <div class="pull-left">
+					  <button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i> جدید</button>
+					  <div class="pull-left">
+						<button type="submit" class="btn btn-success"><i class="fa fa-check"></i> ثبت</button>
+					  </div>
+				  </div>
+			  </div>
+			</form>
+			</div>
+		  </div>
+</div>
+<div class="row">
+		<div class="col-md-6">
+			<div class="form-group-group forestgreen">
+				<h4>لیست کاربران</h4>
+				<table class="table table-striped" id="sub_accounts">
+				<thead>
+                    <tr>
+                      <th scope="col">ایمیل</th>
+                      <th scope="col">گروه کاربری</th>
+                      <th scope="col">حذف</th>
+                      <th scope="col">ویرایش</th>
+                    </tr>
+                  </thead>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group-group forestgreen">
+				<h4>لیست گروه های کاربری</h4>
+				<table class="table table-striped" id="group_list">
+				<thead>
+                    <tr>
+                      <th scope="col">گروه کاربری</th>
+                      <th scope="col">حذف</th>
+                      <th scope="col">تنظیمات</th>
+                    </tr>
+                  </thead>
+				</table>
+			</div>
+		</div>
+</div>
+<script>
+    var adminApiPrefix = "<%=originalURL%><%=config.webPaths.adminApiPrefix%>"
+</script>
+<% include blocks/confirm.ejs %>
+<% include blocks/subpermissions.ejs %>
+<% include blocks/editUser.ejs %>
+<% customAutoLoad.adminPageBlocks.forEach(function(block){ %>
+    <%- include(block) %>
+<% }) %>
+</body>
+<script><% include ../libs/js/basic.js %></script>
+<script><% include ../libs/js/socket.io.js %></script>
+<script><% include ../libs/js/pnotify.custom.min.js %></script>
+<script><% include ../libs/js/moment.js %></script>
+<script><% include ../libs/js/livestamp.min.js %></script>
+<script><% include ../libs/js/placeholder.js %></script>
+<script><% include ../libs/js/bootstrap.min.js %></script>
+<script><% include ../libs/js/bootstrap-table.min.js %></script>
+<script>
+$.ccio={subs:{}};$.ls=localStorage;
+$.ccio.ws=io(location.origin,{
+    path : tool.checkCorrectPathEnding(location.pathname)+'socket.io'
+});
+$.ccio.cx=function(x){ if(!x.ke){x.ke=$user.ke;};if(!x.uid){x.uid=$user.uid;};return $.ccio.ws.emit('a',x)}
+
+$.ccio.ws.on('connect',function(d){
+    $.ccio.cx({f:'init',auth:$user.auth_token});
+})
+PNotify.prototype.options.styling = "fontawesome";
+$.ccio.ws.on('f',function(d){
+    console.log(d);
+    switch(d.f){
+        case'error':
+            var account = $.ccio.subs[d.uid]
+
+            new PNotify({
+                title : 'خطا',
+                text : '<b>'+d.msg+'</b>',
+                type : 'error'
+            })
+            break;
+        case'edit_sub_account':
+            var account = $.ccio.subs[d.uid]
+            $.each(d.form,function(n,v){
+                account[n]=v;
+            });
+            account.detailsJSON=JSON.parse(account.details)
+            new PNotify({
+                title : 'به روز رسانی',
+                text : '<b>' + account.mail + '</b> به روز رسانی شد.',
+                type : 'success'
+            })
+        break;
+        case'add_sub_account':
+            $.ccio.tm(0,d,'#sub_accounts')
+            var account = $.ccio.subs[d.uid]
+            new PNotify({
+                title : 'ایجاد کاربر',
+                text : '<b>' + account.mail + '</b> افزوده شد.',
+                type : 'danger'
+            })
+        break;
+        case'add_groups':
+            $.ccio.tm2(0,d,'#group_list')
+            var account = $.ccio.subs[d.uid]
+            new PNotify({
+                title : 'ایجاد گروه',
+                text : '<b>' + account.detailsJSON.grpName + '</b> ایجاد شد',
+                type : 'success'
+            })
+        break;
+        case'delete_group':
+            $('#group_list tr[uid="'+d.uid+'"]').remove()
+            var account = $.ccio.subs[d.uid]
+
+            new PNotify({
+                title : 'حذف گروه',
+                text : '<b>' + account.detailsJSON.grpName + '</b> حذف شد.',
+                type : 'info'
+            })
+        break;
+        case'delete_sub_account':
+            $('#sub_accounts tr[uid="'+d.uid+'"]').remove()
+            var account = $.ccio.subs[d.uid]
+            new PNotify({
+                title : 'حذف کاربر',
+                text : '<b>' + account.mail + '</b> حذف گردید.',
+                type : 'info'
+            })
+        break;
+        case'edit_Account_account':
+            console.log('edit_Account_account')
+        break;
+    }
+})
+
+$.ccio.tm=function(x,d,z,k){
+        var tmp='';if(!d){d={}};if(!k){k={}};
+        if(d.id&&!d.mid){d.mid=d.id;}
+        switch(x){
+            case 0://sub account row
+                if(d.mail!==null){
+                d.detailsJSON=JSON.parse(d.details);
+                var myJSON = JSON.stringify(d.detailsJSON);
+                $.ccio.subs[d.uid]=d;
+                 tmp+='<tr uid="'+d.uid+'"><td><input type="hidden" name="grpIdRow" value="'+d.detailsJSON.idgrp+'"/><b class="mail">'+d.mail+'</b></td><td><b>'+d.detailsJSON.grpName+'</b></td><td><a class="delete btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td><td><a class="edit btn btn-xs btn-primary"><i class="fa fa-edit"></i></a></td></tr>';
+                }
+            break;
+        }
+        if(z){
+            $(z).prepend(tmp)
+        }
+        return tmp;
+    }
+$.ccio.tm2=function(x,d,z,k){
+        var tmp='';if(!d){d={}};if(!k){k={}};
+        if(d.id&&!d.mid){d.mid=d.id;}
+        switch(x){
+            case 0://groups row
+
+            if(!d.mail){
+            d.detailsJSON=JSON.parse(d.details);
+            var myJSON = JSON.stringify(d.detailsJSON);
+              $.ccio.subs[d.uid]=d;
+             tmp+='<tr uid="'+d.uid+'"><td><b class="mail">'+d.detailsJSON.grpName+'</b></td><td><a class="delete btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td><td><a class="permission btn btn-xs btn-primary"><i class="fa fa-lock"></i></a></td></tr>';
+
+             var x = document.getElementById("grpUser");
+               var option = document.createElement("option");
+			   option.setAttribute("myTag", d.detailsJSON.idgrp);
+               option.text = d.detailsJSON.grpName;
+               option.value = myJSON;
+               x.add(option);
+            }
+            break;
+        }
+        if(z){
+            $(z).prepend(tmp)
+        }
+        return tmp;
+    }
+$subs=<%-JSON.stringify($subs)%>;
+$.each($subs,function(n,v){
+    $.ccio.tm(0,v,'#sub_accounts')
+    $.ccio.tm2(0,v,'#group_list')
+})
+
+//add new
+$.aN={e:$('#add_new')};
+$.aN.e.submit(function(e){
+    e.preventDefault();
+    e.s = $.aN.e.serializeObject()
+    e.m = $('#msg').empty()
+    $.post('<%=originalURL%><%=config.webPaths.adminApiPrefix%>'+$user.auth_token+'/accounts/'+$user.ke+'/register',{data:e.s},function(d){
+        if(d.msg){
+            e.m.text(d.msg)
+        }
+    });
+    return false;
+});
+
+//***************************************************
+//add new group
+$.aNG={e:$('#add_new_grp')};
+$.aNG.e.submit(function(e){
+    e.preventDefault();
+    e.s = $.aNG.e.serializeObject()
+        e.m = $('#msg').empty()
+        $.post('<%=originalURL%><%=config.webPaths.adminApiPrefix%>'+$user.auth_token+'/groups/'+$user.ke+'/register',{data:e.s},function(d){
+            if(d.msg){
+                e.m.text(d.msg)
+            }
+        });
+        return false;
+});
+//group simple lister
+$.grpList={e:$('#group_list')};
+$.grpList.e.on('click','.delete',function(e){
+    var el = $(this).parents('tr')
+    var subAccountUid = el.attr('uid')
+    $.get('<%=originalURL%><%=config.webPaths.adminApiPrefix%>'+$user.auth_token+'/groupsCheck/'+$user.ke+'/',{data:subAccountUid},function(data){
+        if(data.length > 0){
+            $.confirm.e.modal('show')
+            $.confirm.title.html('کاربر گرامی ')
+            var html = '<p> لطفا قبل از حذف این گروه کاربری, حساب های کاربری زیر را که در این گروه میباشند را تغییر دهید</p>';
+            html +='<hr>';
+            html +='<ul>';
+            data.forEach((item)=>{
+             html += '<li>'+item+'</li>';
+            })
+             html +='</ul>';
+            $.confirm.body.html(html)
+        }else{
+             $.confirm.e.modal('show')
+             $.confirm.title.html('کاربر گرامی ')
+             var html = 'مایل به حذف   می باشید</br> این رویداد غیر قابل بازگشت است.'
+             $.confirm.body.html(html)
+             $.confirm.click({title:'Delete',class:'btn-danger'},function(){
+                 $.post('<%=originalURL%><%=config.webPaths.adminApiPrefix%>'+$user.auth_token+'/groups/'+$user.ke+'/delete',{
+                     uid: subAccountUid,
+                 },function(data){
+                 console.log('delete confirm')
+                 location.reload();
+                 })
+             })
+        }
+    });
+})
+
+$.grpList.e.on('click','.permission',function(e){
+    //for get new permission data
+        $('#permissions').on('hidden.bs.modal', function () {
+            // reload data
+           location.reload();
+        })
+    e.e=$(this).parents('tr');
+        e.m=e.e.find('.mail').text();
+        e.u=e.e.attr('uid');
+        $.pR.e.modal('show');
+        $.pR.l.text(e.m);
+        $.pR.user=e.u;
+
+        e.d=$.ccio.subs[e.u].detailsJSON;
+        //load values
+        $.each($.ccio.subs[$.pR.user],function(n,v){
+            $.pR.e.find('[name="'+n+'"]').val(v)
+        })
+        $.pR.e.find('[detail]').each(function(n,v){
+            $(v).val(e.d[$(v).attr('detail')])
+        }).first().change()
+        $.each(['monitors','monitor_edit','video_delete','video_view'],function(m,b){
+            if(e.d[b]){
+                $.each(e.d[b],function(n,v){
+                    $.pR.e.find('[monitor="'+b+'"][mid="'+v+'"]').val(1)
+                })
+            }
+        })
+})
+//***************************************************
+
+//sub simple lister
+$.sU={e:$('#sub_accounts')};
+$.sU.e.on('click','.delete',function(e){
+    var el = $(this).parents('tr')
+    var subAccountEmail = el.find('.mail').text()
+    var subAccountUid = el.attr('uid')
+
+    $.confirm.e.modal('show')
+   // $.confirm.title.html('Delete Sub-Account <small>'+subAccountUid+'</small>')
+    $.confirm.title.html('کاربر گرامی')
+    var html = '<p>مایل به حذف  <b>'+subAccountEmail+'</b> می باشید</br> این رویداد غیر قابل بازگشت است</p>.'
+    $.confirm.body.html(html)
+    $.confirm.click({title:'Delete',class:'btn-danger'},function(){
+        $.post('<%=originalURL%><%=config.webPaths.adminApiPrefix%>'+$user.auth_token+'/accounts/'+$user.ke+'/delete',{
+            uid: subAccountUid,
+            mail: subAccountEmail
+        },function(data){})
+    })
+})
+
+
+//ako
+$.sU.e.on('click','.edit',function(e){
+e.e=$(this).parents('tr');
+    e.m=e.e.find('.mail').text();
+    e.u=e.e.attr('uid');
+    e.grpId=e.e.find('input:hidden[name=grpIdRow]').val();
+     $.uE.user=e.u;
+  $.uE.e.modal('show');
+  $.uE.e.find('[name="mail"]').val(e.m)
+  $.uE.e.find('[name="userId"]').val(e.u)
+  $.uE.e.find('[name="grpId"]').val(e.grpId)
+
+  //clear if exsit options
+  $("#oneGrpUser option").remove();
+  	$.each($.ccio.subs,function(k,v){
+         // $.pR.e.find('[name="'+n+'"]').val(v)
+         if(!v.mail){
+         var x = document.getElementById("oneGrpUser");
+            var option = document.createElement("option");
+            option.setAttribute("myTag", v.detailsJSON.idgrp);
+            option.text = v.detailsJSON.grpName;
+            option.value = JSON.stringify(v.detailsJSON);
+            x.add(option);
+
+         }
+      })
+
+          //set selectedIndex
+          var x2 = document.getElementById("oneGrpUser");
+              for (i = 0; i < x2.length; i++) {
+                   if(x2[i].getAttribute("myTag")===e.grpId)
+                   {
+                   x2.selectedIndex =i;
+                   }
+              }
+})
+
+$.uUser={e:$('#upDateUserFrm')};
+$.uUser.e.submit(function(e){
+    e.preventDefault();
+    e.s = $.uUser.e.serializeObject()
+    e.m = $('#msg').empty()
+
+    $.post('<%=originalURL%><%=config.webPaths.adminApiPrefix%>'+$user.auth_token+'/accounts/'+$user.ke+'/editUser',{data:e.s},function(data){
+        if(data.ok){
+           $.uE.e.modal('hide')
+           location.reload();
+        }else{
+            new PNotify({
+                title : 'fails',
+                text : data.msg,
+                type : 'error'
+            })
+        }
+    });
+    return false;
+});
+
+
+
+//edit window
+$.uE={e:$('#editUser'),l:$('#editUserLabel small')};
+$.uE.f=$.uE.e.find('form')
+
+$.uE.e.on('change','[userinfoedit]',function(e){
+    var detailsInfo=JSON.parse(e.target.value);
+    //grpId
+    $.uE.e.find('[name="grpId"]').val(detailsInfo.idgrp)
+});
+
+//ako
+
+$.sU.e.on('click','.permission',function(e){
+    e.e=$(this).parents('tr');
+    e.m=e.e.find('.mail').text();
+    e.u=e.e.attr('uid');
+    $.pR.e.modal('show');
+    $.pR.l.text(e.m);
+    $.pR.user=e.u;
+    e.d=$.ccio.subs[e.u].detailsJSON;
+    //load values
+    $.each($.ccio.subs[$.pR.user],function(n,v){
+        $.pR.e.find('[name="'+n+'"]').val(v)
+    })
+    $.pR.e.find('[detail]').each(function(n,v){
+        $(v).val(e.d[$(v).attr('detail')])
+    }).first().change()
+    $.each(['monitors','monitor_edit','video_delete','video_view'],function(m,b){
+        if(e.d[b]){
+            $.each(e.d[b],function(n,v){
+                $.pR.e.find('[monitor="'+b+'"][mid="'+v+'"]').val(1)
+            })
+        }
+    })
+})
+//permission window
+$.pR={e:$('#permissions'),l:$('#permissionsLabel small')};$.pR.f=$.pR.e.find('form')
+$.pR.e.on('change','[detail]',function(e){
+    e.f=$(this).parents('form');
+    var details = $.pR.e.find('[name="details"]')
+    e.ar = JSON.parse(details.val())
+    e.f.find('[detail]').each(function(n,v){
+        v = $(v);e.ar[v.attr('detail')] = v.val()
+    })
+    details.val(JSON.stringify(e.ar))
+})
+$.pR.e.on('change','[detail="allmonitors"]',function(e){
+    e.e=$(this),
+    e.mon=$('.permission-view')
+    if(e.e.val() === '1'){
+        e.mon.hide();
+    }else{
+        e.mon.show()
+        $.pR.e.find('[monitor]').first().change()
+    }
+})
+$.pR.e.on('click','[check]',function(e){
+    $(this).parents('.form-group-group').find('select').val($(this).attr('check')).first().change()
+})
+$.pR.e.on('change','[monitor]',function(e){
+    e.details=$.pR.e.find('[name="details"]')
+    try{e.detail=JSON.parse(e.details.val())}catch(err){e.detail={}}
+    if(!e.detail){e.detail={}}
+    $.pR.e.find('[monitor]').each(function(n,kel){
+        var monitors = [];
+        var key = $(kel).attr('monitor')
+        $.pR.e.find('[monitor="'+key+'"]').each(function(n,v){
+            var el = $(v)
+            if(el.val() === '1'){
+                monitors.push(el.attr('mid'))
+            }
+        });
+        e.detail[key] = monitors
+    })
+    e.details.val(JSON.stringify(e.detail))
+});
+$.pR.f.submit(function(e){
+    e.preventDefault()
+    var form = $(this).serializeObject()
+    $.post('<%=originalURL%><%=config.webPaths.adminApiPrefix%>'+$user.auth_token+'/accounts/'+$user.ke+'/edit',{
+        uid: $.pR.user,
+        mail: $.ccio.subs[$.pR.user].mail,
+        data: form
+    },function(data){
+        if(data.ok){
+            $.pR.e.modal('hide')
+           location.reload();
+        }else{
+            new PNotify({
+                title : 'Failed to Add Account',
+                text : data.msg,
+                type : 'error'
+            })
+        }
+    })
+    return false
+})
+
+$('body')
+.on('click','.logout',function(e){
+    localStorage.removeItem('ShinobiLogin_'+location.host);location.href=location.href;
+})
+
+
+//for collapse list cameras
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+</script>
+<% customAutoLoad.adminLibsJs.forEach(function(lib){ %>
+    <script src="<%-window.libURL%>libs/js/<%-lib%>"></script>
+<% }) %>

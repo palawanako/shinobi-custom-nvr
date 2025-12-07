@@ -1,0 +1,185 @@
+.shortView{
+
+}
+#monitors_list .dome ,#monitors_list .ptz{
+    display: none;
+}
+.shortView #monitors_list .dome ,.shortView #monitors_list .ptz{/* display: block !important; */display: flex;align-items: center;width: 100%;border-bottom: solid 1px #7997a6;}
+.shortView .box {
+    display:none;
+}
+.shortView .link-monitors-list .monitor_block .snapshot2 ,.shortView .link-monitors-list .monitor_block .snapshot2{
+    display: none ;
+}
+.list-blocks .dome,.list-blocks .ptz,.list-blocks .lamp,.side-menu .lamp{
+    display: none ;
+}
+.shortView .monitor_block img {
+    height: auto !important;
+    width: 18% !important;
+    margin-right: 4px;
+    cursor: pointer !important;
+    border: 0.5px inset #26323800 !important;
+}
+.shortView .lamp {
+    display: block;
+}
+.dome span,.ptz span{
+    font-size:10px;
+}
+.tamLamp[title="Watch Only"]{
+    /*color: rgba(64, 157, 218, 0.85);*/
+    background-image:url("../../img/icon/status_icon.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="Record"]{
+    /*color: #ea1212cc;*/
+    background-image:url("../../img/icon/status_rec.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="record"]{
+    /*color: #ea1212cc;*/
+    background-image:url("../../img/icon/status_rec.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="ضبط"]{
+    /*color: #ea1212cc;*/
+    background-image:url("../../img/icon/status_rec.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="start"]{
+    /*color: rgba(64, 157, 218, 0.85);*/
+    background-image:url("../../img/icon/status_icon.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="در حال مشاهده"]{
+    /*color: rgba(64, 157, 218, 0.85);*/
+    background-image:url("../../img/icon/status_icon.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="Idle"]{
+    /*color: rgba(212, 237, 218, 0.8);*/
+    background-image:url("../../img/icon/status-dc.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="متوقف شد"]{
+    /*color: rgba(212, 237, 218, 0.8);*/
+    background-image:url("../../img/icon/status-dc.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="درگذشت"]{
+    /*color: rgba(212, 237, 218, 0.8);*/
+    background-image:url("../../img/icon/status-dc.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="idle"]{
+    /*color: rgba(212, 237, 218, 0.8);*/
+    background-image:url("../../img/icon/status-dc.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="Disabled"]{
+    /*color: rgba(212, 237, 218, 0.8);*/
+    background-image:url("../../img/icon/status-dc.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="stop"]{
+    color: rgba(212, 237, 218, 0.8);
+    background-image:url("../../img/icon/status-dc.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.tamLamp[title="Stopped"]{
+    color: rgba(212, 237, 218, 0.8);
+    background-image:url("../../img/icon/status-dc.png") ;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.viewBar{
+
+}
+.viewBar li {
+    float: left;
+}
+.viewBar a {
+    display: block;
+    width: 99px;
+    line-height: 60px;
+    text-align: center;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+.menuView{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menuView li{
+    border: none !important;
+    padding: 4px !important;
+}
+
+.btn-view{
+    color: #91e8ee;
+    background-color: #2b9cb0;
+    border-color: #467287;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-view:hover {
+    background-color: #467287;
+}

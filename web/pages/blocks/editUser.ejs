@@ -1,0 +1,81 @@
+<!--Confirmation Window-->
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="editUserLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form class="modal-content" id="upDateUserFrm">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="editUserLabel"><i class="fa fa-edit"></i> &nbsp; <%-lang.Edit%></h4>
+      </div>
+      <div class="modal-body" style="max-height:600px;overflow:auto">
+          <div class="text-center msg"></div>
+        <div class="form-group-group ">
+				<div class="form-group">
+					<label><div><span>ایمیل</span></div>
+						<div><input class="form-control" type="email" name="mail"></div>
+					</label>
+				</div>
+				<div class="form-group">
+			  <label><div><span>گروه های کاربری</span></div>
+				  <div>
+				  <select class="form-control" id="oneGrpUser" name="detailsUser" userinfoedit>
+
+					</select>
+				  </div>
+			  </label>
+
+				</div>
+                <div class="form-group">
+                    <label><div><span><%-lang['Password']%></span></div>
+                        <div><input id="newPass" class="form-control" type="password" name="pass"></div>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label><div><span><%-lang['Password Again']%></span></div>
+                        <div><input id="newPass_again" class="form-control" type="password" name="pass_again"></div>
+                    </label>
+                </div>
+                <div class="alert alert-danger" role="alert" id="pass_alert" style="display: none;text-align: center;padding: 8px;">
+                    <span>
+                        <%-lang["Passwords don't match"]%>
+                    </span>
+                </div>
+		  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa fa-times"></i> <%-lang.Close%></button>
+          <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> <%-lang.Save%></button>
+        </div>
+        <input type="hidden" name="grpId">
+        <input type="hidden" name="userId">
+    </form>
+  </div>
+</div>
+
+<script>
+    $('#newPass').on('change',(d)=>{
+        //first disable submit until pass again matched
+        //get value of pass_again
+        let pass=$('#newPass').val()
+        let pass_again=$('#newPass_again').val()
+        if(pass === pass_again  ){
+            $('#pass_alert').hide()
+            $('#btnSubmit').prop("disabled",false);
+        }else{
+            $('#pass_alert').show()
+            $('#btnSubmit').prop("disabled",true);
+        }
+    })
+    $('#newPass_again').on('change',()=>{
+        let pass=$('#newPass').val()
+        let pass_again=$('#newPass_again').val()
+        if(pass === pass_again  ){
+            $('#pass_alert').hide()
+            $('#btnSubmit').prop("disabled",false);
+        }else{
+            $('#pass_alert').show()
+            $('#btnSubmit').prop("disabled",true);
+        }
+    })
+</script>

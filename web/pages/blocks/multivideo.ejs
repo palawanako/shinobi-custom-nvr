@@ -1,0 +1,166 @@
+<!--Timelapse Window-->
+<div class="modal full fade " id="timelapse1" role="dialog" aria-labelledby="timelapseLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="timelapseLabel"><i class="fa fa-angle-double-right"></i> &nbsp; <span><%- lang['multivideo'] %></span></h4>
+      </div>
+        <div class="modal-body text-center">
+            <div class="row">
+                <div class="col-md-12" >
+                     <div class="timelapse_hud__">
+                        <form id="formAll" class="controlBar hover-hide frmCtrl">
+                                <div class="display-table-cell col-md-12">
+                                <label><div><span><%-lang['group Data Range']%></span></div>
+                                    <div><input type="text" id="timelapse_daterangeAll" class="form-control" value="" /></div>
+                                </label>
+                                </div>
+
+                            </form>
+                    </div>
+                </div>
+            <div class="col-md-6" >
+                     <div class="timelapse_hud">
+                                <form id="form1" class="controlBar hover-hide frmCtrl">
+                                        <div class="display-table-cell col-md-6">
+                                            <label><div><span><%-lang.Monitor%></span></div>
+                                                <div><select class="form-control monitors_list"></select></div>
+                                            </label>
+                                        </div>
+                                        <div class="display-table-cell col-md-6">
+                                        <label><div><span><%-lang['Date Range']%></span></div>
+                                            <div><input type="text" id="timelapse_daterange1" class="form-control" name="ako1" value="" /></div>
+                                        </label>
+                                        </div>
+
+                                    </form>
+                                    <div  id="mp1">
+                                          <video class="plyr" id="myplayer" controls />
+
+                                      </div>
+                                </div>
+					</div>
+		<div class="col-md-6" >
+                     <div class="timelapse_hud">
+                                <form id="form2" class="controlBar hover-hide frmCtrl">
+                                        <div class="display-table-cell col-md-6">
+                                            <label><div><span><%-lang.Monitor%></span></div>
+                                                <div><select class="form-control monitors_list2"></select></div>
+                                            </label>
+                                        </div>
+                                        <div class="display-table-cell col-md-6">
+                                        <label><div><span><%-lang['Date Range']%></span></div>
+                                            <div><input type="text" id="timelapse_daterange2" class="form-control" value="" /></div>
+                                        </label>
+                                        </div>
+
+                                    </form>
+                                    <div id="mp2" >
+                                          <video class="plyr" id="myplayer2" controls />
+
+                                      </div>
+                                </div>
+					</div>
+					<div class="col-md-6" >
+                     <div class="timelapse_hud">
+                                <form id="form3" class="controlBar hover-hide frmCtrl">
+                                        <div class="display-table-cell col-md-6">
+                                            <label><div><span><%-lang.Monitor%></span></div>
+                                                <div><select class="form-control monitors_list3"></select></div>
+                                            </label>
+                                        </div>
+                                        <div class="display-table-cell col-md-6">
+                                        <label><div><span><%-lang['Date Range']%></span></div>
+                                            <div><input type="text" id="timelapse_daterange3" class="form-control" value="" /></div>
+                                        </label>
+                                        </div>
+
+                                    </form>
+                                    <div id="mp3" >
+                                          <video class="plyr" id="myplayer3" controls />
+
+                                      </div>
+                                </div>
+					</div>
+					<div class="col-md-6" >
+                     <div class="timelapse_hud">
+                                <form id="form4" class="controlBar hover-hide frmCtrl">
+                                        <div class="display-table-cell col-md-6">
+                                            <label><div><span><%-lang.Monitor%></span></div>
+                                                <div><select class="form-control monitors_list4"></select></div>
+                                            </label>
+                                        </div>
+                                        <div class="display-table-cell col-md-6">
+                                        <label><div><span><%-lang['Date Range']%></span></div>
+                                            <div><input type="text" id="timelapse_daterange4" class="form-control" value="" /></div>
+                                        </label>
+                                        </div>
+
+                                    </form>
+                                    <div id="mp4" >
+                                          <video class="plyr" id="myplayer4" controls />
+
+                                      </div>
+                                </div>
+					</div>
+
+            <div class="form-group col-md-2" style="display:none;" >
+            <h1>LIST 1</h1>
+                 <ul  class="list-group"></ul>
+                   <div class="playlist">
+                   <ul id="timelapse_video_line1" >
+
+                   </ul>
+                   </div>
+
+             </div>
+			<div class="form-group col-md-2" style="display:none;">
+				<h1>LIST 2</h1>
+                 <ul  class="list-group"></ul>
+                   <div class="playlist2">
+                   <ul id="timelapse_video_line2" >
+
+                   </ul>
+                   </div>
+			 </div>
+			<div class="form-group col-md-2" style="display:none;">
+				<h1>LIST 3</h1>
+					<ul  class="list-group"></ul>
+                   <div class="playlist3">
+                   <ul id="timelapse_video_line3" >
+
+                   </ul>
+                   </div>
+			 </div>
+			<div class="form-group col-md-2" style="display:none;">
+				<h1>LIST 4</h1>
+					<ul  class="list-group"></ul>
+                   <div class="playlist4">
+                   <ul id="timelapse_video_line4" >
+
+                   </ul>
+                   </div>
+			 </div>
+			<div class="form-group col-md-2" style="display:none;">
+				<h1>LIST 5</h1>
+					<ul id="timelapse_video_line5" class="list-group"></ul>
+			 </div>
+			<div class="form-group col-md-2" style="display:none;">
+				<h1>LIST 6</h1>
+					<ul id="timelapse_video_line6" class="list-group"></ul>
+			 </div>
+
+            </div>
+        </div>
+      <div class="modal-footer">
+          <div class="btn-group pull-left">
+              <button type="button" class="btn btn-default" data-dismiss="modal"><%-lang.Close%></button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="<%-window.libURL%>libs/js/dash2.multivideo.js"></script>

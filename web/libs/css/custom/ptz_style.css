@@ -1,0 +1,24 @@
+.PTZ_controls .pad .right:active {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, .5);
+    border: 0;
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, .15), 0 0 0 0px rgba(60, 60, 60, 0.2), 0 0 0 0px rgba(255, 255, 255, .15);
+}
+.PTZ_controls .pad .left:active {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, .5);
+    border: 0;
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, .15), 0 0 0 0px rgba(60, 60, 60, 0.2), 0 0 0 0px rgba(255, 255, 255, .15);
+}
+.PTZ_controls .pad .bottom:active {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, .5);
+    border: 0;
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, .15), 0 0 0 0px rgba(60, 60, 60, 0.2), 0 0 0 0px rgba(255, 255, 255, .15);
+}
+.PTZ_controls .pad .top:active {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, .5);
+    border: 0;
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, .15), 0 0 0 0px rgba(60, 60, 60, 0.2), 0 0 0 0px rgba(255, 255, 255, .15);
+}

@@ -1,0 +1,1234 @@
+{
+   "Monitor Settings": {
+      "section": "Monitor Settings",
+      "blocks": {
+         "Identity": {
+            "name": "Identity",
+            "color": "",
+            "info": [
+               {
+                  "name": "mode",
+                  "field": "Mode",
+                  "description": " مشخص کردن وضعیت دوربین (مشاهده، ضبط و ...) در اینجا تعریف می شود.",
+                  "default": "Disabled",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Disabled",
+                        "info": "Inactive monitor, no process will be created in this mode."
+                     },
+                     {
+                        "name": "Watch-Only",
+                        "info": "Monitor will only stream, no recording will occur unless otherwise ordered by API or Detector."
+                     },
+                     {
+                        "name": "Record",
+                        "info": "Continuous Recording. Segments are made every 15 minutes by default."
+                     }
+                  ]
+               },
+               {
+                  "name": "mid",
+                  "field": "Monitor ID",
+                  "description": "لطفا در تعیین شناسه دقت فرمایید چرا که بعدا قابل تغییر نمی باشد و در صورتی که تغییر یابد به عنوان دوربینی جدید با شناسه جدید به سیستم افزوده خواهد شد.",
+                  "default": "<i>Provided by Server</i>",
+                  "example": "awFST99MGn",
+                  "possible": ""
+               },
+               {
+                  "name": "name",
+                  "field": "Name",
+                  "description": "تعیین نامی که خواندن و تشخیص آن برای کاربران راحت تر از شناسه باشد.",
+                  "default": "",
+                  "example": "Bunny",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=fatal_max",
+                  "field": "Retry Connection",
+                  "description": "تعیین دفعات تلاش برای برقراری ارتباط بین سرور و دوربین قبل از آنکه دوربین را بعنوان غیر فعال دسته بندی کند. اگر مقدار صفر باشد همواره در حال تلاش برای برقراری ارتباط خواهد بود.",
+                  "default": "10",
+                  "example": "100000",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=notes",
+                  "field": "Notes",
+                  "description": "محلی برای افزودن توضیحات بیشتر راجب دوربین برای شفاف سازی بیشتر برای کاربران سیستم می باشد",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=dir",
+                  "field": "Storage Location",
+                  "description": "تعیین محلی که برای ذخیره تصاویر این دوربین در نظر گرفته شده است. شما می توانید در تنظیمات کاربر مدیر سیستم چندین محل برای ذخیره سازی تعریف کنید.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "Input": {
+            "name": "Input",
+            "color": "forestgreen",
+            "info": [
+               {
+                  "name": "type",
+                  "field": "Input Type",
+                  "description": "متدی که برای دریافت جریان ویدئو از آن استفاده می کنید.",
+                  "default": "JPEG",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "JPEG",
+                        "info": "Reading snapshots from a URL and making a stream and/or video from them."
+                     },
+                     {
+                        "name": "MJPEG",
+                        "info": "Similar to JPEG except the frame handling is done by FFMPEG, not Shinobi."
+                     },
+                     {
+                        "name": "H.264",
+                        "info": "Reading a high quality video streas that sometimes include audio."
+                     },
+                     {
+                        "name": "Local",
+                        "info": "Reading Capture Cards, Webcams, or Integrated Cameras."
+                     },
+                     {
+                        "name": "Shinobi Streamer",
+                        "info": "Continuous Recording. Segments are made every 15 minutes by default."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=auto_host_enable",
+                  "field": "Automatic",
+                  "description": "تغذیه بخشی یا تمامی از تصویر به TAMEYE و اجازه دادن به آن جهت تجزیه و تحلیل تصاویر بصورت خودکار",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=auto_host",
+                  "field": "Full URL Path",
+                  "description": "مسیر کامل جریان ویدئو",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=accelerator",
+                  "field": "Accelerator",
+                  "description": "شتابدهی سخت افزار جهت بهینه سازی فرآیند رمزگشایی تصاویر",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "protocol",
+                  "field": "Connection Type",
+                  "description": "پروتکل مورد استفاده جهت دریافت جریان ویدئو از دوربین اینجا مشخص می گردد.",
+                  "default": "HTTP",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "HTTP",
+                        "info": "Standard connection method."
+                     },
+                     {
+                        "name": "HTTPS",
+                        "info": "Standard connection method with SSL."
+                     },
+                     {
+                        "name": "RTSP",
+                        "info": "Real Time Streaming Protocol"
+                     },
+                     {
+                        "name": "UDP",
+                        "info": "Near restrictionless data transfer method."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=muser",
+                  "field": "Username",
+                  "description": "نام کاربری دوربین را اینجا وارد کنید",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=mpass",
+                  "field": "Password",
+                  "description": "گذرواژه دوربین را اینجا وارد کنید",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "host",
+                  "field": "Host",
+                  "description": "آدرس شبکه دوربین را وارد نمایید.",
+                  "default": "",
+                  "example": "111.111.111.111",
+                  "possible": ""
+               },
+               {
+                  "name": "port",
+                  "field": "Port",
+                  "description": "شماره پورتی که جریان بر روی آن ارسال می گردد.",
+                  "default": "80",
+                  "example": "554",
+                  "possible": "1-65535"
+               },
+               {
+                  "name": "detail=port_force",
+                  "field": "Force Port",
+                  "description": "استفاده اجباری از پورت درگاه پیشفرض وب",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "path",
+                  "field": "Path",
+                  "description": "مسیر جریان مورد نظر خود را وارد نمایید.",
+                  "default": "",
+                  "example": "/video.h264",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=aduration",
+                  "field": "Analyzation Duration",
+                  "description": "مشخص نمودن تعداد میکروثانیه هایی که آنالیز برای کاوش جریان ورودی بایستی صورت پذیرد. اگر جریانات RTSP دارید می توانید مقدار آنرا روی 100000 تنظیم نمایید.",
+                  "default": "",
+                  "example": "100000",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=probesize",
+                  "field": "Probe Size",
+                  "description": "مشخص نمودن اندازه کاوشگر برای تحلیل تصویر ورودی در اینجا تنظیم می گردد. در صورتی که از جریانات RTSP استفاده می کنید می توانید مقدار آنرا به 100000 تغییر دهید.",
+                  "default": "",
+                  "example": "100000",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=rtsp_transport",
+                  "field": "RTSP Transport",
+                  "description": "پروتکل انتقال شبکه ای دوربین را تعیین نمایید.",
+                  "default": "",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Auto",
+                        "info": "Let FFMPEG decide. Normally it will try UDP first."
+                     },
+                     {
+                        "name": "TCP",
+                        "info": "Set it to this if UDP starts giving undesired results."
+                     },
+                     {
+                        "name": "UDP",
+                        "info": "FFMPEG tries this first."
+                     },
+                     {
+                        "name": "HTTP",
+                        "info": "Standard connection method."
+                     }
+                  ]
+               }
+            ]
+         },
+         "Stream": {
+            "name": "Stream",
+            "color": "blue",
+            "info": [
+               {
+                  "name": "detail=stream_type",
+                  "field": "Stream Type",
+                  "description": "متدی که برای جریان خروجی مورد استفاده قرار می گیرد. ",
+                  "default": "HLS",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Poseidon",
+                        "info": "Simulates a streaming MP4 file but using the data of a live stream. Includes Audio. Some browsers can play it like a regular MP4 file. Streams over HTTP or WebSocket."
+                     },
+                     {
+                        "name": "MJPEG",
+                        "info": "Standard Motion JPEG image. No audio."
+                     },
+                     {
+                        "name": "HLS",
+                        "info": "Similar method to facebook live streams. <b>Includes audio</b> if input provides it. There is a delay of about 4-6 seconds because this method records segments then pushes them to the client rather than push as while it creates them."
+                     },
+                     {
+                        "name": "Base64",
+                        "info": "Sending Base64 encoded frames over WebSocket. This avoids caching but there is no audio."
+                     },
+                     {
+                        "name": "FLV",
+                        "info": "Sending FLV encoded frames over WebSocket."
+                     },
+                     {
+                        "name": "kVid",
+                        "info": "Using Kevin Godell's custom JavaScript MP4 segmenting engine."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=signal_check",
+                  "field": "Check Signal Interval",
+                  "description": "How often your client will check each stream to see if it is alive. This is calculated in minutes.",
+                  "default": "10",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=stream_flv_type",
+                  "field": "Connection Type",
+                  "description": "پروتکل اتصالی که از طریق آن جریان دریافت می گردد. هر دو حالت همواره فعال بوده و ارتباط خود را با دوربین حفظ می کنند.",
+                  "default": "10",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=signal_check_log",
+                  "field": "Log Signal Event",
+                  "description": "This is for the client side only. It will display in the log thread when client side signal checks occur.",
+                  "default": "No",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "No",
+                        "info": "No signal check."
+                     },
+                     {
+                        "name": "Yes",
+                        "info": "Check signal based on the number of minutes provided."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=stream_quality",
+                  "field": "Quality",
+                  "description": "Low number means higher quality. Higher number means less quality.",
+                  "default": "15",
+                  "example": "1",
+                  "possible": "1-23"
+               },
+               {
+                  "name": "detail=stream_fps",
+                  "field": "Rate (FPS)",
+                  "description": "The speed in which frames are displayed to clients, in Frames Per Second. Be aware there is no default. This can lead to high bandwidth usage.",
+                  "default": "",
+                  "example": "1",
+                  "possible": ""
+               },
+               {
+                  "name": "height",
+                  "field": "Height",
+                  "description": "Height of the stream image.",
+                  "default": "640",
+                  "example": "1280",
+                  "possible": ""
+               },
+               {
+                  "name": "width",
+                  "field": "Width",
+                  "description": "Width of the stream image.",
+                  "default": "480",
+                  "example": "720",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=svf",
+                  "field": "Video Filter",
+                  "description": "Place FFMPEG video filters in this box to affect the streaming portion. No spaces.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "Stream - HLS": {
+            "name": "Stream - HLS",
+            "color": "blue",
+            "info": [
+               {
+                  "name": "detail=stream_vcodec",
+                  "field": "Video Codec",
+                  "description": "کدک ویدئویی که برای دریافت جریان مورد استفاده قرار می گیرد در این بخش تعیین می گردد.",
+                  "default": "copy",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Default",
+                        "info": "Let Shinobi choose."
+                     },
+                     {
+                        "name": "Auto",
+                        "info": "Let FFMPEG choose."
+                     },
+                     {
+                        "name": "libvpx",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libvpx-vp9",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libx264",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "libx265",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "copy",
+                        "info": "Used for MP4 video. Has very low CPU usage but cannot use video filters and filesizes may be gigantic.  Best to setup your MP4 settings camera-side when using this option."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=stream_acodec",
+                  "field": "Audio Codec",
+                  "description": "کدک صوتی که برای دریافت جریان مورد استفاده قرار می گیرد در این بخش تعیین می گردد.",
+                  "default": "No Audio",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Default",
+                        "info": "Let Shinobi choose."
+                     },
+                     {
+                        "name": "Auto",
+                        "info": "Let FFMPEG choose."
+                     },
+                     {
+                        "name": "No Audio",
+                        "info": "No Audio, this is an option that must be set in some parts of the world due to legal reasons."
+                     },
+                     {
+                        "name": "libvorbis",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libopus",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libmp3lame",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "aac",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "ac3",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "copy",
+                        "info": "Used for MP4 video. Has very low CPU usage but some audio codecs need custom flags like <code>-strict 2</code> for aac."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=hls_time",
+                  "field": "HLS Segment Length",
+                  "description": "How long each video segment should be, in minutes. Each segment will be drawn by the client through an m3u8 file. Shorter segments take less space.",
+                  "default": "2",
+                  "example": "3",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=hls_list_size",
+                  "field": "HLS List Size",
+                  "description": "The number of segments maximum before deleting old segments automatically.",
+                  "default": "2",
+                  "example": "3",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=preset_stream",
+                  "field": "HLS Preset",
+                  "description": "Preset flag for certain video encoders. If you find your camera is crashing every few seconds : try leaving it blank.",
+                  "default": "",
+                  "example": "ultrafast",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=stream_scale_x",
+                  "field": "Width",
+                  "description": "Width of the stream image.",
+                  "default": "640",
+                  "example": "640",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=stream_scale_y",
+                  "field": "Height",
+                  "description": "Height of the stream image.",
+                  "default": "480",
+                  "example": "480",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=tv_channel",
+                  "field": "TV Channel",
+                  "description": "این امکان را به شما می دهد تا این دوربین را به عنوان یک کانال تلویزیونی در لیست کانال ها اضافه کند.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=tv_channel_id",
+                  "field": "TV Channel ID",
+                  "description": "A Custom ID for the Channel.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "Recording": {
+            "name": "Recording",
+            "color": "red",
+            "info": [
+               {
+                  "name": "ext",
+                  "field": "Record File Type",
+                  "description": "نوع فایل جهت ذخیره سازی تصاویر را انتخاب کنید.",
+                  "default": "MP4",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "MP4",
+                        "info": "This file type is playable is almost all modern web browsers, that includes mobile. The filesize just tends to be larger unless you lower the quality."
+                     },
+                     {
+                        "name": "WebM",
+                        "info": "Small filesize, low client compatibility. Good for uploading to sites like YouTube."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=vcodec",
+                  "field": "Video Codec",
+                  "description": "کدک ویدئویی جهت ذخیره سازی",
+                  "default": "copy",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Default",
+                        "info": "Let Shinobi choose."
+                     },
+                     {
+                        "name": "Auto",
+                        "info": "Let FFMPEG choose."
+                     },
+                     {
+                        "name": "libvpx",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libvpx-vp9",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libx264",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "libx265",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "copy",
+                        "info": "Used for MP4 video. Has very low CPU usage but cannot use video filters and filesizes may be gigantic.  Best to setup your MP4 settings camera-side when using this option."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=acodec",
+                  "field": "Audio Codec",
+                  "description": "کدک صوتی جهت ذخیره سازی",
+                  "default": "No Audio",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Default",
+                        "info": "Let Shinobi choose."
+                     },
+                     {
+                        "name": "Auto",
+                        "info": "Let FFMPEG choose."
+                     },
+                     {
+                        "name": "No Audio",
+                        "info": "No Audio, this is an option that must be set in some parts of the world due to legal reasons."
+                     },
+                     {
+                        "name": "libvorbis",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libopus",
+                        "info": "Used for WebM video."
+                     },
+                     {
+                        "name": "libmp3lame",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "aac",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "ac3",
+                        "info": "Used for MP4 video."
+                     },
+                     {
+                        "name": "copy",
+                        "info": "Used for MP4 video. Has very low CPU usage but some audio codecs need custom flags like <code>-strict 2</code> for aac."
+                     }
+                  ]
+               },
+               {
+                  "name": "crf",
+                  "field": "Quality",
+                  "description": "Low number means higher quality. Higher number means less quality.",
+                  "default": "15",
+                  "example": "1",
+                  "possible": "1-23"
+               },
+               {
+                  "name": "preset_record",
+                  "field": "Preset",
+                  "description": "Preset flag for certain video encoders. If you find your camera is crashing every few seconds : try leaving it blank.",
+                  "default": "",
+                  "example": "ultrafast",
+                  "possible": ""
+               },
+               {
+                  "name": "fps",
+                  "field": "Video Record Rate (FPS)",
+                  "description": "The speed in which frames are recorded to files, Frames Per Second. Be aware there is no default. This can lead to large files. Best to set this camera-side.",
+                  "default": "",
+                  "example": "2",
+                  "possible": ""
+               },
+               {
+                  "name": "height",
+                  "field": "Record Height",
+                  "description": "Height of the stream image.",
+                  "default": "640",
+                  "example": "1280",
+                  "possible": ""
+               },
+               {
+                  "name": "width",
+                  "field": "Record Width",
+                  "description": "Width of the stream image.",
+                  "default": "480",
+                  "example": "720",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=cutoff",
+                  "field": "Recording Segment Interval",
+                  "description": "فاصله زمانی هر قطعه ضبط را به دقیقه تنظیم نمایید.",
+                  "default": "15",
+                  "example": "60",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=dqf",
+                  "field": "Double Quote Directory",
+                  "description": "در صورتی که در نام دایرکتوری شما فاصله وجود دارد این گزینه را انتخاب نمایید.",
+                  "default": "No",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "No",
+                        "info": "No is the default."
+                     },
+                     {
+                        "name": "Yes",
+                        "info": "Using this may crash some cameras."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=vf",
+                  "field": "Record Video Filter",
+                  "description": "Place FFMPEG video filters in this box to affect the recording portion. No spaces.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "Timestamp": {
+            "name": "Timestamp",
+            "color": "red",
+            "info": [
+               {
+                  "name": "detail=timestamp_font",
+                  "field": "Font Path",
+                  "description": "Font File to style your timestamp.",
+                  "default": "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=timestamp_font_size",
+                  "field": "Font Size",
+                  "description": "Font size in pt.",
+                  "default": "10",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=timestamp_color",
+                  "field": "Text Color",
+                  "description": "Timstamp text color.",
+                  "default": "white",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=timestamp_box_color",
+                  "field": "Text Box Color",
+                  "description": "Timstamp backdrop color.",
+                  "default": "0x00000000@1",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=timestamp_x",
+                  "field": "Position X",
+                  "description": "Horiztonal Position of Timestamp",
+                  "default": "(w-tw)/2",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=timestamp_y",
+                  "field": "Position Y",
+                  "description": "Vertical Position of Timestamp",
+                  "default": "0",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "Detector": {
+            "name": "Detector",
+            "color": "orange",
+            "info": [
+               {
+                  "name": "detail=detector",
+                  "field": "Enabled",
+                  "description": "می توانید آشکارساز را برای تشخیص حرکت  در این بخش فعال کنید.",
+                  "default": "No",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_pam",
+                  "field": "Use Built-In",
+                  "description": "استفاده از پلاگین تشخیص حرکت TAMEYE که در آن نهادینه شده است و نیاز به تنظیمات پیچیده و اضافه ندارد.",
+                  "default": "No",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_trigger",
+                  "field": "Trigger Record",
+                  "description": "دستور ضبط تصاویر در صورت مشاهده حرکت در حالت سنتی (فقط مشاهده) را صادر می کند. ",
+                  "default": "No",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_timeout",
+                  "field": "Recording Timeout",
+                  "description": "مدت زمانیکه (به دقیقه) ضبط پس از تشخیص حرکت ادامه خواهد داشت.",
+                  "default": "10",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_send_video_length",
+                  "field": "Notification Video Length",
+                  "description": "مدت زمان ویدئویی که جهت هشداردهی از طریق بسترهایی مانند ایمیل ارسال می شود. (بر حسب ثانیه)",
+                  "default": "10",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=watchdog_reset",
+                  "field": "Timeout Reset on Next Event",
+                  "description": "در صورت تداخل وقایع تایمر ضبط ریست شود یا خیر ؟",
+                  "default": "No",
+                  "example": "1",
+                  "possible": [
+                     {
+                        "name": "No",
+                        "info": "Finish the current 10 minute order.."
+                     },
+                     {
+                        "name": "Yes",
+                        "info": "Reset the timer"
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=detector_save",
+                  "field": "Save Events to SQL",
+                  "description": "با تعیین این پارامتر به سیستم دستور ثبت وقایع در پایگاه داده را می دهید. در صورت فعال سازی بعدا می توانید وقایع را در نمایشگر ویدئو مشاهده فرمایید.",
+                  "default": "Yes",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_send_frames",
+                  "field": "Send Frames",
+                  "description": "فریم ها را جهت پردازش تصویر به پلاگین مربوطه ارسال می کند.",
+                  "default": "No",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_frame_save",
+                  "field": "Save Frames to Events",
+                  "description": "Save frames to the event row in the database as a base64 string. Enabling this can drain performance.",
+                  "default": "No",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_mail",
+                  "field": "Email on Trigger",
+                  "description": "برای دریافت یک ایمیل حاوی تصویر فوری از حرکت شناسایی شده به صاحب حساب کاربری از این طریق انجام می شود. بایستی تنظیمالت SMTP را قبلا انجام داده باشید.",
+                  "default": "No",
+                  "example": "1",
+                  "possible": [
+                     {
+                        "name": "No",
+                        "info": "Finish the current 10 minute order."
+                     },
+                     {
+                        "name": "Yes",
+                        "info": "Reset the timer"
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=detector_mail_timeout",
+                  "field": "Allow Next Email",
+                  "description": "مدت زمانی که ماشه مجاز است در صورت وقوع رویداد دیگر بعد از ایمیل قبلی یک ایمیل جدید ارسال نماید.",
+                  "default": "10",
+                  "example": "0.5",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_fps",
+                  "field": "Detector Rate (FPS)",
+                  "description": "تعداد فریم هایی که در هر ثانیه به پلاگین تشخیص حرکت فرستاده می شود. مقدار پیش فرض 2 می باشد.",
+                  "default": "2",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_buffer_seconds",
+                  "field": "Recorded Buffer",
+                  "description": "میزان ثانیه های قبل از وقوع واقعه که فایل ضبط شده شامل آنها بشود.",
+                  "default": "5",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_scale_x",
+                  "field": "Feed-in Image Width",
+                  "description": "طول تصویر تغذیه شده به پلاگین می باشد. هر چه عرض تصویر کمتر باشد مصرف پردازنده کمتر خواهد بود.",
+                  "default": "",
+                  "example": "640",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_scale_y",
+                  "field": "Feed-in Image Height",
+                  "description": "عرض تصویر تغذیه شده به پلاگین می باشد. هر چه عرض تصویر کمتر باشد مصرف پردازنده کمتر خواهد بود.",
+                  "default": "",
+                  "example": "480",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_frame",
+                  "field": "Full Frame Detection",
+                  "description": "This will read the entire frame for pixel differences.",
+                  "default": "Yes",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "No",
+                        "info": "Makes motion detector do nothing if regions are not specified. Which is a stupid option to have if motion detection is on. One day we will remove this option."
+                     },
+                     {
+                        "name": "Yes",
+                        "info": "Read entire frame."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=detector_sensitivity",
+                  "field": "Indifference",
+                  "description": "مشخص کننده میزان حساسیت برای تشخیص تفاوت میان دو فریم می باشد.",
+                  "default": "0.005",
+                  "example": "10",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_max_sensitivity",
+                  "field": "Max Indifference",
+                  "description": "تعیین سقف مجاز برای میزان حساسیت",
+                  "default": "",
+                  "example": "75",
+                  "possible": "Any number."
+               },
+               {
+                  "name": "detail=detector_threshold",
+                  "field": "Trigger Threshold",
+                  "description": "تعیین کننده تعداد مورد نیاز از واقعه برای اجرای فرمان از پیش تعیین شده می باشد.",
+                  "possible": "Any non-negative integer."
+               },
+               {
+                  "name": "detail=detector_color_threshold",
+                  "field": "Color Threshold",
+                  "description": "مقدار مجاز تفاوت رنگ بین دو فریم",
+                  "default": "9",
+                  "example": "9",
+                  "possible": "Any non-negative integer."
+               },
+               {
+                  "name": "detail=detector_webhook",
+                  "field": "Webhook",
+                  "description": "یک Get Request شامل اطلاعاتی از واقعه به آدرس URL مشخص ارسال می کند.",
+                  "default":"No",
+                  "example": "",
+                  "possible":""
+               },
+               {
+                  "name": "detail=detector_command_enable",
+                  "field": "Detector Command",
+                  "description": "در صورتی که تمایل دارید پس از تشخیص واقعه، یک فرمان از طریق اسکریپت اجرا گردد می توانید از این بخش استفاده نمایید.",
+                  "default": "No",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "No",
+                        "info": "No script will run."
+                     },
+                     {
+                        "name": "Yes",
+                        "info": "Trigger the script that is set in the <b>Command</b> option. <b>Command</b> is only visible when selecting this option."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=detector_command",
+                  "field": "Command",
+                  "description": "اسکریپتی که قصد اجرای آنرا دارید. کانند اجرای فرمان از Terminal می باشد.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_command_timeout",
+                  "field": "Allow Next Command",
+                  "description": "در اینجا می توانید فاصله بین اجرای دو فرمان را به دقیقه مشخص نمایید.",
+                  "default": "10",
+                  "example": "0.1",
+                  "possible": "Any number."
+               }
+            ]
+         },
+         "\"No Motion\" Detector": {
+            "name": "\"No Motion\" Detector",
+            "color": "orange",
+            "info": [
+               {
+                  "name": "detail=detector_notrigger_mail",
+                  "field": "Email on \"No Motion\"",
+                  "description": "اگر به میزانی که به دقیقه تعیین نموده اید هیچ حرکتی رخ ندهد شما از طریق ایمیل اطلاع رسانی می شوید.",
+                  "default": "No",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=detector_notrigger_timeout",
+                  "field": "Timeout",
+                  "description": "مدت زمان معین برای تشخیص عدم حرکت و ارسال ایمیل پس از آن",
+                  "default": "1",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "Custom": {
+            "name": "Custom",
+            "color": "navy",
+            "info": [
+               {
+                  "name": "detail=cust_input",
+                  "field": "Input Flags",
+                  "description": "پرچم های سفارشی که به ورودی فرایند FFMPEG متصل می شوند.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=cust_snap",
+                  "field": "Snapshot Flags",
+                  "description": "Custom Flags that bind to the Snapshots.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=cust_detect",
+                  "field": "Detector Flags",
+                  "description": "Custom Flags that bind to the stream Detector uses for analyzation.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=cust_stream",
+                  "field": "Stream Flags",
+                  "description": "پرچم های سفارشی که به جریان (سمت کلاینت) فرآیند FFMPEG متصل می شوند.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=cust_record",
+                  "field": "Recording Flags",
+                  "description": "پرچم های سفارشی که به روند ضبط  FFMPEG متصل می شوند.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=custom_output",
+                  "field": "Output Method",
+                  "description": "Add a custom output like JPEG frames or send data straight to another server.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "Logging": {
+            "name": "Logging",
+            "color": "green",
+            "info": [
+               {
+                  "name": "detail=loglevel",
+                  "field": "Log Level",
+                  "description": "لطفا سطح مورد نیاز از سوابق را تعیین فرمایید.",
+                  "default": "No",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "Silent",
+                        "info": "None. This will silence all logging."
+                     },
+                     {
+                        "name": "Fatal",
+                        "info": "Display only fatal errors."
+                     },
+                     {
+                        "name": "On Error",
+                        "info": "Display all important errors. Note : this doesn't always show important information."
+                     },
+                     {
+                        "name": "All Warnings",
+                        "info": "Display all warnings. Use this if you can't find out what's wrong with your camera."
+                     },
+                     {
+                        "name": "Debug",
+                        "info": "Show all information FFMPEG can provide on STDERR while doing the job."
+                     }
+                  ]
+               },
+               {
+                  "name": "detail=sqllog",
+                  "field": "Save Log in SQL",
+                  "description": "در صورتی که تمایل به ذخیره سوابق در پایگاه داده دارید این گزینه را انتخاب نمایید.",
+                  "default": "No",
+                  "example": "",
+                  "possible": [
+                     {
+                        "name": "No",
+                        "info": "No is the default."
+                     },
+                     {
+                        "name": "Yes",
+                        "info": "Do this if you are having recurring issues only."
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   },
+   "Account Settings": {
+      "section": "Account Settings",
+      "blocks": {
+         "Profile": {
+            "name": "Profile",
+            "color": "grey",
+            "info": [
+               {
+                  "name": "mail",
+                  "field": "Email",
+                  "description": "The login for accounts. The main account holder's email address will get notifications.",
+                  "default": "",
+                  "example": "ccio@m03.ca",
+                  "possible": "Email compliant string."
+               },
+               {
+                  "name": "pass",
+                  "field": "Password",
+                  "description": "Leave blank to keep the same password during settings modification.",
+                  "default": "",
+                  "example": "ccio@m03.ca",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=size",
+                  "field": "Max Storage Amount",
+                  "description": "The amount max space Shinobi will allow to be consumed before purging. This value is read in megabytes.",
+                  "default": "10000",
+                  "example": "600000",
+                  "possible": "Up to 95% of your maximum storage space if only one master account exists."
+               },
+               {
+                  "name": "detail=days",
+                  "field": "Number of Days to keep Videos",
+                  "description": "The number of days to keep videos before purging.",
+                  "default": "7",
+                  "example": "30",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=event_days",
+                  "field": "Number of Days to keep Events",
+                  "description": "The number of days to keep events before purging.",
+                  "default": "7",
+                  "example": "30",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=log_days",
+                  "field": "Number of Days to keep Logs",
+                  "description": "The number of days to keep logs before purging.",
+                  "default": "7",
+                  "example": "30",
+                  "possible": ""
+               }
+            ]
+         },
+         "Monitor Groups": {
+            "name": "Monitor Groups",
+            "color": "blue",
+            "info": [
+               {
+                  "field": "Groups",
+                  "description": "The list of groups you have created.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "field": "Group Name",
+                  "description": "Name of selected group.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         },
+         "WebDAV": {
+            "name": "WebDAV",
+            "color": "forestgreen",
+            "info": [
+               {
+                  "name": "detail=webdav_url",
+                  "field": "URL",
+                  "description": "The connection URL for your WebDAV server.",
+                  "default": "",
+                  "example": "http://owncloud.server/remote.php/webdav/",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=webdav_user",
+                  "field": "Username",
+                  "description": "The username required to access this server.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=webdav_pass",
+                  "field": "Password",
+                  "description": "The password required to access this server.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=webdav_save",
+                  "field": "Autosave",
+                  "description": "Whether or not the server should auto upload videos as they are finished.",
+                  "default": "No",
+                  "example": "",
+                  "possible": ""
+               },
+               {
+                  "name": "detail=webdav_dir",
+                  "field": "Save Directory",
+                  "description": "The directory where videos will be saved.",
+                  "default": "/",
+                  "example": "/videos",
+                  "possible": ""
+               }
+            ]
+         },
+         "Custom Styles": {
+            "name": "Custom Styles",
+            "color": "navy",
+            "info": [
+               {
+                  "name": "detail=css",
+                  "field": "CSS",
+                  "description": "Add custom colors to your dashboard. This field should only be used by advanced users.",
+                  "default": "",
+                  "example": "",
+                  "possible": ""
+               }
+            ]
+         }
+      }
+   }
+}

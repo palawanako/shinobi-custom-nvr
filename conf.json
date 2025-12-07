@@ -1,0 +1,30 @@
+{
+  "port": 8080,
+  "passwordType": "sha256",
+  "detectorMergePamRegionTriggers": true,
+  "addStorage": [
+    {
+      "name": "second",
+      "path": "__DIR__/videos2"
+    }
+  ],
+  "db": {
+    "host": "127.0.0.1",
+    "user": "root",
+    "password": "321321",
+    "database": "ccio",
+    "port": 3306
+  },
+  "mail": {
+    "service": "gmail",
+    "auth": {
+      "user": "your_email@gmail.com",
+      "pass": "your_password_or_app_specific_password"
+    }
+  },
+  "cron": {
+    "key": "localcron"
+  },
+  "pluginKeys": {},
+  "serverIp":"localhost:8080"
+}

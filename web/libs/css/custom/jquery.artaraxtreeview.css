@@ -1,0 +1,56 @@
+﻿/* 
+    Rrtarax Tree View
+    copyright 2018 http://artarax.com
+*/
+.treeview{
+    margin:0 0 30px;
+    list-style-type:none;
+    padding:0;
+    min-height:200px;
+    max-height: 500px;
+    overflow: auto;
+}
+.treeview *{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+.treeview li{
+    line-height:25px;
+}
+.treeview label{
+    font-size:100%;
+    font-family: vazir-l;
+}
+.treeview ul{
+    margin-right:25px;
+    /* margin-bottom:14px; */
+    /* list-style-type:none; */
+    /* border-right:1px solid #ccc; */
+}
+.node-plus,.node-minus, .node-none{margin: 0;padding-left: 8px;font-size: 170%;display: inline-block;cursor: pointer;width: 20px;}
+.node-none{
+    width:22px;
+}
+.node-plus::before {
+    content: "+";
+}
+.node-minus::before {
+    content: "-";
+}
+.node-plus:hover{
+    color: #5cb85c;
+}
+.node-minus:hover{
+     color: #d9534f;
+     /* font-size: 69px; */
+}
+.mng-img{
+    width:18px;
+    height:18px;
+    margin:0 4px;
+    cursor:pointer
+}
+.btn-wrpr{
+    border: none !important;
+}

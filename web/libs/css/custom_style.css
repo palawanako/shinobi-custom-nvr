@@ -1,0 +1,320 @@
+a{
+    font-family: vazir-l !important;
+}
+.custom_tbl>tbody>tr>td{
+    padding:5px !important;
+    font-size: 15px;
+}
+.fixed-table-container thead th .sortable {
+    cursor: pointer;
+    background-position: left !important;
+    background-repeat: no-repeat;
+    padding-right: 10px !important;
+}
+.custom_chb{
+    margin: 0 !important;
+}
+.daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect, .daterangepicker select.ampmselect{
+    width: 30% !important;
+    display: inline-block;
+    float: left;
+}
+.customTime{padding-left: 22% !important;}
+
+.customTime li{float: left;font-family: "B Mitra" !important;text-align: left !important;}
+
+blockquote{font-family: "B Mitra" !important;}
+
+.filterDiv {
+    /* float: left; */
+    /* background-color: #2196F3; */
+    color: #ffffff;
+    /* width: 100px; */
+    /* line-height: 100px; */
+    text-align: center;
+    margin: 2px;
+    display: none;
+}
+
+
+#btnGroupDrop1::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    /*clear: both;*/
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.mdl-menu__item{
+    font-family:vazir-l;
+    font-size: 13px;
+    text-align: right !important;
+}
+table{
+    font-family:vazir-l;
+}
+h1,h2,h3,h4,p,span{
+    font-family:vazir-l !important;
+}
+.btn,.form-control{
+    font-family:vazir-l !important;
+}
+.daterangepicker .calendar-table th {
+    font-family:vazir-l !important;
+}
+.mdl-menu{
+    direction: rtl;
+    /*right: 0 !important;*/
+}
+.table{
+    direction: rtl;
+}
+.dark.modal {
+    direction: rtl;
+}
+.modal {
+    direction: rtl;
+}
+blockquote {
+    font-family: vazir-l !important;
+}
+.os_bars label, .os_bars .percent {
+
+    direction: rtl;
+    text-align: center;
+    font-family: vazir-l;
+    display: block !important;
+}
+
+.show{
+    display:block;
+}
+
+.show1{
+    display:block ;
+}
+.atlasLink{
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 14px;
+}
+.showAtlas{
+    display:block !important;
+}
+.hidAtlas{
+    display: none !important;
+}
+#containerB{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 48px;
+    width: 270px;
+    z-index: 1;
+    background-color: #343a40;
+    color: white;
+    /* border: solid 1px gray; */
+}
+.btnExitIfram{
+    color: #b4b6b8;
+    background: transparent;
+}
+#CloseIfram{
+    padding-top: 15px;
+}
+#CloseIfram:hover{
+    color:white;
+}
+.timelapse_hud:hover .hover-hide {
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+.timelapse_hud .controlBar {
+
+    bottom: auto !important;
+}
+.monitor_item .stream-hud .lamp {
+    position: absolute;
+    top: 3px;
+    left: 18px;
+    z-index: 1;
+    text-shadow: 0 0 15px #333;
+}
+#checkboxes{
+    font-family:vazir-l;
+}
+
+
+#checkboxes input[type=checkbox] + label:before {
+    letter-spacing: 10px;
+    padding-left: 6px;
+}
+/*************************home loading****************/
+
+@-moz-keyframes leftAnim {
+    0% {
+        -moz-transform: translateX(97px);
+        transform: translateX(97px);
+    }
+    100% {
+        -moz-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes leftAnim {
+    0% {
+        -webkit-transform: translateX(97px);
+        transform: translateX(97px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes leftAnim {
+    0% {
+        -moz-transform: translateX(97px);
+        -ms-transform: translateX(97px);
+        -webkit-transform: translateX(97px);
+        transform: translateX(97px);
+    }
+    100% {
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-moz-keyframes rightAnim {
+    0% {
+        -moz-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -moz-transform: translateX(-93px);
+        transform: translateX(-93px);
+    }
+}
+@-webkit-keyframes rightAnim {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(-93px);
+        transform: translateX(-93px);
+    }
+}
+@keyframes rightAnim {
+    0% {
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -moz-transform: translateX(-93px);
+        -ms-transform: translateX(-93px);
+        -webkit-transform: translateX(-93px);
+        transform: translateX(-93px);
+    }
+}
+.loader {
+    width: 300px;
+    height: 150px;
+    margin: 0 auto;
+    top: 30%;
+    position: relative;
+}
+.loader::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+    width: 2px;
+    z-index: 1;
+    height: 150px;
+    border-left: 2px dotted #edd7d0;
+}
+.loader__box {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    z-index: 2;
+}
+.loader--left {
+    left: 0;
+}
+.loader--left .loader__circle {
+    background-color: #fff;
+    right: 10px;
+    background: url('../img/icon/t1.png');
+    -moz-animation: leftAnim 1.3s ease-in-out alternate infinite;
+    -webkit-animation: leftAnim 1.3s ease-in-out alternate infinite;
+    animation: leftAnim 1.3s ease-in-out alternate infinite;
+}
+.loader--right {
+    right: 0;
+}
+.loader--right .loader__circle {
+    left: 10px;
+    -moz-animation: rightAnim 1.3s ease-in-out alternate infinite;
+    -webkit-animation: rightAnim 1.3s ease-in-out alternate infinite;
+    animation: rightAnim 1.3s ease-in-out alternate infinite;
+}
+.loader__circle {
+    width: 75px;
+    height: 75px;
+    /* border: solid 2px black; */
+    display: block;
+    background: url('../img/icon/t2.png');
+    /* background-color: #000; */
+    -moz-border-radius: 50%;
+    /* -webkit-border-radius: 50%; */
+    /* border-radius: 50%; */
+    position: absolute;
+    top: 50%;
+    margin-top: -37.5px;
+}
+
+
+.v-align {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    /* display: block !important; */
+    z-index: 999;
+    background: white;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.tbl_list>thead>tr>th {
+    text-align: center !important;
+}
+.tbl_list>tbody>tr>td {
+    text-align: center !important;
+}
+.float-right{
+    float: right;
+}

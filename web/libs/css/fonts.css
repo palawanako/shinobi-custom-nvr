@@ -1,0 +1,31 @@
+@font-face {
+    font-family: vazir;
+    src: url('../fonts/vazir/Vazir.eot');
+    src: url('../fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/vazir/Vazir.woff2') format('woff2'),
+    url('../fonts/vazir/Vazir.woff') format('woff'),
+    url('../fonts/vazir/Vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: vazir-m;
+    src: url('../fonts/vazir/Vazir-Medium.eot');
+    src: url('../fonts/vazir/Vazir-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/vazir/Vazir-Medium.woff2') format('woff2'),
+    url('../fonts/vazir/Vazir-Medium.woff') format('woff'),
+    url('../fonts/vazir/Vazir-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'vazir-l';
+    src: url('../fonts/vazir/Vazir-Light.eot');
+    src: url('../fonts/vazir/Vazir-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/vazir/Vazir-Light.woff2') format('woff2'),
+    url('../fonts/vazir/Vazir-Light.woff') format('woff'),
+    url('../fonts/vazir/Vazir-Light.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
